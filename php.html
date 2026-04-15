@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Scientific Calculator</title>
+
+<style>
+body {
+  background: #0f172a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: sans-serif;
+}
+
+.calculator-glass {
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 15px;
+  width: 300px;
+}
+
+.display {
+  background: black;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  text-align: right;
+}
+
+.buttons-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+button {
+  height: 50px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.num { background: #334155; color: white; }
+.op { background: orange; color: white; }
+.equal { background: green; color: white; }
+
+button:hover {
+  opacity: 0.8;
+}
+.profile-container {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.profile-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+
+  /* افکت شیشه‌ای */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+
+  /* نور نئونی */
+  box-shadow: 
+    0 0 10px #00f7ff,
+    0 0 20px #00f7ff,
+    0 0 40px #00f7ff;
+
+  border: 2px solid rgba(255,255,255,0.2);
+
+  transition: 0.3s;
+}
+
+.myprofile.JPEG:hover {
+  transform: scale(1.08);
+  box-shadow: 
+    0 0 20px #00f7ff,
+    0 0 40px #00f7ff,
+    0 0 60px #00f7ff;
+}
+
+.myprofile.JPEG {
+  color: white;
+  margin-top: 10px;
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+</style>
+
+</head>
+<body>
+  <body>
+
+    <div style="text-align:center; margin-bottom:20px;">
+      <img src="myprofile.JPEG" width="120" style="border-radius:50%;">
+      <h2 style="color:rgb(244, 244, 244);">Shoaib Bigzada & Elyas Naderi</h2>
+    </div>
+    
+    <div class="calculator-glass">
+
+<div class="calculator-glass">
+  <div id="display" class="display">0</div>
+
+  <div class="buttons-grid">
+    <button class="num" onclick="add('7')">7</button>
+    <button class="num" onclick="add('8')">8</button>
+    <button class="num" onclick="add('9')">9</button>
+    <button class="op" onclick="add('/')">÷</button>
+
+    <button class="num" onclick="add('4')">4</button>
+    <button class="num" onclick="add('5')">5</button>
+    <button class="num" onclick="add('6')">6</button>
+    <button class="op" onclick="add('*')">×</button>
+
+    <button class="num" onclick="add('1')">1</button>
+    <button class="num" onclick="add('2')">2</button>
+    <button class="num" onclick="add('3')">3</button>
+    <button class="op" onclick="add('-')">-</button>
+
+    <button class="num" onclick="add('0')">0</button>
+    <button class="num" onclick="add('.')">.</button>
+    <button onclick="clearDisplay()">AC</button>
+    <button class="op" onclick="add('+')">+</button>
+
+    <button class="equal" onclick="calculate()" style="grid-column: span 4">=</button>
+  </div>
+</div>
+
+<script>
+let current = '';
+
+function add(value) {
+  current += value;
+  document.getElementById("display").innerText = current;
+}
+
+function clearDisplay() {
+  current = '';
+  document.getElementById("display").innerText = '0';
+}
+
+function calculate() {
+  try {
+    current = eval(current).toString();
+    document.getElementById("display").innerText = current;
+  } catch {
+    document.getElementById("display").innerText = 'Error';
+  }
+}
+</script>
+
+</body>
+</html>
